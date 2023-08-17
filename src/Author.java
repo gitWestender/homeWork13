@@ -26,4 +26,17 @@ public class Author {
     public String toString() {
         return "Автор: " + lastName + " " + firstName + "\n";
     }
+
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj == null || obj.getClass() != this.getClass()) {
+            return false;
+        }
+
+        Author author = (Author) obj;
+        return (firstName == author.firstName) || (firstName != null && firstName.equals(author.getFirstName()))
+                && (lastName == author.lastName) || (lastName != null && firstName.equals(author.getLastName()));
+    }
 }

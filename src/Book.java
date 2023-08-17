@@ -36,4 +36,18 @@ public class Book {
     public String toString() {
         return author.toString() + "Книга: " + title + "\n" + "Год публикации: " + publicationYear;
     }
+
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj == null || obj.getClass() != this.getClass()) {
+            return false;
+        }
+
+        Book book = (Book) obj;
+        return publicationYear == book.publicationYear
+                && (title == book.title || (title != null && title.equals(book.getTitle())))
+                && (author.equals(book.author));
+    }
 }
